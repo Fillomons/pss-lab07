@@ -34,4 +34,12 @@ public class TestSimpleBankAccount {
         Assertions.assertEquals(249.0, account.getBalance());
 
     }
+
+    @Test
+    public void testChargeManagementFees(){
+        BankAccount account = new SimpleBankAccount(aRossi, 10.0);
+        account.chargeManagementFees(aRossi.getUserID());
+        Assertions.assertEquals(5.0, account.getBalance());
+
+    }
 }
