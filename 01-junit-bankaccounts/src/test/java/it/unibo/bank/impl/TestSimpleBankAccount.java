@@ -42,4 +42,11 @@ public class TestSimpleBankAccount {
         Assertions.assertEquals(5.0, account.getBalance());
 
     }
+
+    @Test
+    public void testWithdraw(){
+        BankAccount account = new SimpleBankAccount(aRossi, 50.0);
+        account.withdraw(aRossi.getUserID(), 100.0);
+        Assertions.assertEquals(-50.0, account.getBalance());
+    }
 }
