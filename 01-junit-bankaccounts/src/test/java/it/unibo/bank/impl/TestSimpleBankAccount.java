@@ -23,5 +23,15 @@ public class TestSimpleBankAccount {
         Assertions.assertEquals(0.0, account.getBalance());
         Assertions.assertEquals(0, account.getTransactionsCount());
         Assertions.assertSame(this.aRossi, account.getAccountHolder());
-    }    
+    }
+
+    @Test
+    public void testDeposit(){
+        BankAccount account = new SimpleBankAccount(aRossi, 100.0);
+        account.deposit(aRossi.getUserID(), 50.0);
+        Assertions.assertEquals(150.0, account.getBalance());
+        account.depositFromATM(aRossi.getUserID(), 100.0);
+        Assertions.assertEquals(249.0, account.getBalance());
+
+    }
 }
